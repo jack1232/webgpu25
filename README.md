@@ -1,5 +1,5 @@
 # Step-by-Step WebGPU Graphics Programming (25) 
-## Create a torus Wireframe
+## Create a Sinc Surface
 
 This is the source code for the 25th part of a series YouTube videos on step-by-step WebGPU graphics programming.
 
