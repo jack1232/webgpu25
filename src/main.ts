@@ -1,7 +1,6 @@
-import { LightInputs } from './shaders';
 import { SimpleSurfaceData } from './surface-data';
 import { Sinc } from './math-func';
-import { CreateSurfaceWithColormap } from './surface';
+import { CreateSurfaceWithColormap, LightInputs } from './surface';
 import $ from 'jquery';
 
 const CreateSurface = async (li:LightInputs, isAnimation = true, colormapName = 'jet', scale = 2, scaley = 0) => {
@@ -25,7 +24,7 @@ $('#id-radio input:radio').on('click', function(){
 });
 
 $('#btn-redraw').on('click', function(){
-    li.isTwoSideLighting = $('#id-istwoside').val()?.toString();    
+    li.isTwoSideLighting = parseFloat($('#id-istwoside').val()?.toString()!);    
     scale = parseFloat($('#id-scale').val()?.toString()!);  
     scaley = parseFloat($('#id-scaley').val()?.toString()!);     
     CreateSurface(li, isAnimation, colormapName, scale, scaley);
@@ -34,5 +33,9 @@ $('#btn-redraw').on('click', function(){
 $('#id-colormap').on('change',function(){
     const ele = this as any;
     colormapName = ele.options[ele.selectedIndex].text;
+    CreateSurface(li, isAnimation, colormapName, scale, scaley);
+});
+
+window.addEventListener('resize', function(){
     CreateSurface(li, isAnimation, colormapName, scale, scaley);
 });
