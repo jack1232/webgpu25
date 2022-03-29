@@ -2,6 +2,7 @@ import { SimpleSurfaceData } from './surface-data';
 import { Sinc } from './math-func';
 import { CreateSurfaceWithColormap, LightInputs } from './surface';
 import $ from 'jquery';
+import "./site.css";
 
 const CreateSurface = async (li:LightInputs, isAnimation = true, colormapName = 'jet', scale = 2, scaley = 0) => {
     const data = SimpleSurfaceData(Sinc, -8, 8, -8, 8, 30, 30, scale, scaley, colormapName);
